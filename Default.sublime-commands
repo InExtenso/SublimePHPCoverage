@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "PHP Code Coverage: Update All Open Files",
+        "command": "phpcoverage_update_all"
+    },
+    {
+        "caption": "PHP Code Coverage: Update Current File",
+        "command": "phpcoverage_update"
+    }
+]
