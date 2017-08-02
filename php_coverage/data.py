@@ -67,9 +67,10 @@ class CoverageData():
         if (self.normalise(filename1) == filename2):
             return filename1
 
-        for path in config.path_mapping:
-            if (self.normalise(filename1.replace(path, config.path_mapping[path])) == filename2):
-                return self.normalise(filename1.replace(path, config.path_mapping[path]))
+        if (config.is_loaded()):
+            for path in config.path_mapping:
+                if (self.normalise(filename1.replace(path, config.path_mapping[path])) == filename2):
+                    return self.normalise(filename1.replace(path, config.path_mapping[path]))
 
         return False
 
