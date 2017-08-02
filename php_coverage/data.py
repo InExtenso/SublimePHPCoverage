@@ -1,6 +1,6 @@
 import os
 import xml.etree.ElementTree
-
+from php_coverage.config import config
 
 class CoverageData():
 
@@ -52,11 +52,26 @@ class CoverageData():
 
             # find coverage data in the parsed XML coverage file
             for data in self.elements:
-                if self.normalise(data.get('name')) == filename:
+                mapped_filename = self.map_filename(data.get('name'), filename)
+                if (mapped_filename):
                     # create FileCoverage with the data
-                    self.files[filename] = FileCoverage(filename, data)
+                    self.files[mapped_filename] = FileCoverage(mapped_filename, data)
 
         return self.files[filename]
+
+    def map_filename(self, filename1, filename2):
+        """
+        Compare filenames from coverage file to current document,
+        with remote mapping using path_mapping config values
+        """
+        if (self.normalise(filename1) == filename2):
+            return filename1
+
+        for path in config.path_mapping:
+            if (self.normalise(filename1.replace(path, config.path_mapping[path])) == filename2):
+                return self.normalise(filename1.replace(path, config.path_mapping[path]))
+
+        return False
 
 
 class CoverageDataFactory():

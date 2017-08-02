@@ -13,6 +13,7 @@ class Config():
         "watch_report",
         "include",
         "exclude",
+        "path_mapping"
     ]
 
     def __init__(self):

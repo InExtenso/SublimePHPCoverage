@@ -22,6 +22,15 @@
     // Remember to escape backslashes and double quotes (JSON escaping)
     "exclude": [
         "[/\\\\]tests?[/\\\\].*"
-    ]
+    ],
 
+    // Map remote paths to local paths for viewing coverage from remote
+    // filesystems. Use absolute paths, with remote as key and local
+    // as the value
+    // 
+    // Example:
+    // "/var/www/project" : "/Users/user/development/project"
+    "path_mapping": {
+
+    },
 }
