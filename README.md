@@ -185,7 +185,40 @@ the filename, then the file will be excluded. This will force the
 plugin to be disabled for that file, regardless of whether it was
 included by the `include` option above.
 
+##### `path_mapping` (object)
 
+Default: `{}`
+
+Map remote paths to local paths for viewing coverage from remote filesystems. Use absolute paths, with remote as key and local as the value
+
+Example: `"/var/www/project" : "/Users/user/development/project"`
+
+##### `clover_path_property_name` (string)
+
+Default: `name`
+
+This config property able to change the xml read property for search the tested file's path.
+For [Atoum](http://atoum.org/) clover xml file, the property when contains the tested file's path is "path".
+
+
+## Setting up Atoum
+
+Atoum should be configured to output code coverage data in Clover format.
+
+
+```bash
+bin/atoum --output build/logs/clover.xml --format clover
+```
+
+...or add this into your Atoum configuration file `.atoum.php`
+
+```php
+$clover = new \mageekguy\atoum\reports\asynchronous\clover();
+$runner->addReport($clover);
+
+$writerClover = new \mageekguy\atoum\writers\file('build/logs/clover.xml');
+$clover->addWriter($writerClover);
+```
 
 
 ## Setting up PHPUnit
