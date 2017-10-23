@@ -13,7 +13,8 @@ class Config():
         "watch_report",
         "include",
         "exclude",
-        "path_mapping"
+        "path_mapping",
+	"clover_path_property_name"
     ]
 
     def __init__(self):

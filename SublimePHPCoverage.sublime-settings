@@ -33,4 +33,7 @@
     "path_mapping": {
 
     },
+
+    // Search path into the property with this name :
+    "clover_path_property_name": "name"
 }

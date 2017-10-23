@@ -52,7 +52,7 @@ class CoverageData():
 
             # find coverage data in the parsed XML coverage file
             for data in self.elements:
-                mapped_filename = self.map_filename(data.get('name'), filename)
+                mapped_filename = self.map_filename(data.get(config.clover_path_property_name), filename)
                 if (mapped_filename):
                     # create FileCoverage with the data
                     self.files[mapped_filename] = FileCoverage(mapped_filename, data)
