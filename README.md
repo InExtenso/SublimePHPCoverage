@@ -60,7 +60,7 @@ and Sublime Text version.
 You can do this in one go using Git:
 
 ```bash
-$ git clone git://github.com/bradfeehan/SublimePHPCoverage.git "~/Library/Application Support/Sublime Text 2/Packages/SublimePHPCoverage"
+$ git clone git://github.com/InExtenso/SublimePHPCoverage.git "~/Library/Application Support/Sublime Text 2/Packages/SublimePHPCoverage"
 ```
 
 
